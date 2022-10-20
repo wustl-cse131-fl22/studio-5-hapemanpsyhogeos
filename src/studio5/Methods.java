@@ -16,7 +16,8 @@ public class Methods {
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
 		double distance = 0;
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
-		
+		distance = Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1, 2));
+	
 		return distance;
 	}
 
@@ -34,17 +35,20 @@ public class Methods {
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
-
+		StdDraw.setPenColor(0,109,255);
+		StdDraw.filledCircle(x, y, radius * 3.0/4.0);
 		
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
-
+		StdDraw.setPenColor(171,0,0);
+		StdDraw.filledCircle(x, y, radius * 1.0/2.0);
 		
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
-
+		StdDraw.setPenColor(255,255,80);
+		StdDraw.filledCircle(x, y, radius * 1.0/4.0);
 		
 	}
 
@@ -62,6 +66,19 @@ public class Methods {
 	public static String substituteAll(String source, char target, String replacement) {
 		String result = "";
 		// TODO: Finish this method
+		char[] yayArray = new char[source.length()];
+		for (int i=0; i < source.length(); i++) {
+			yayArray[i] = source.charAt(i);
+		}
+		for (int j=0; j < source.length(); j++) {
+			if (yayArray[j] == target) {
+				result = result + replacement;
+			}
+			else {
+				result = result + yayArray[j];
+			}
+		}
+		
 		
 		return result;
 	}
@@ -75,7 +92,10 @@ public class Methods {
 	public static int arraySum(int[] values) {
 		int sum = 0;
 		// FIXME: Compute the sum of the values in an array
-		
+	
+		for (int i=0; i < values.length; i++) {
+			sum = sum + values[i];
+		}
 		return sum;
 	}
 
